@@ -211,6 +211,11 @@ void ggkUpdateQueueClear()
 	updateQueue.clear();
 }
 
+void SetBuzzerState(int state)
+{
+	TheServer->SetBuzzerState(state);
+}
+
 // ---------------------------------------------------------------------------------------------------------------------------------
 //  ____                     _        _
 // |  _ \ _   _ _ __     ___| |_ __ _| |_ ___

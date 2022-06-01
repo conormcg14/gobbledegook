@@ -26,6 +26,7 @@
 #pragma once
 
 #include <gio/gio.h>
+#include <algorithm>
 #include <string>
 #include <vector>
 #include <list>
@@ -160,6 +161,8 @@ struct Server
 	//
 	Server(const std::string &serviceName, const std::string &advertisingName, const std::string &advertisingShortName, 
 		GGKServerDataGetter getter, GGKServerDataSetter setter);
+	
+	void SetBuzzerState(int state);
 
 	//
 	// Utilitarian
