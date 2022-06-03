@@ -289,7 +289,7 @@ int main(int argc, char **ppArgv)
 	//     This first parameter (the service name) must match tha name configured in the D-Bus permissions. See the Readme.md file
 	//     for more information.
 	//
-	if (!ggkStart("gobbledegook", "Gobbledegook", "Gobbledegook", dataGetter, dataSetter, kMaxAsyncInitTimeoutMS))
+	if (!ggkStart("buzzer", "Buzzer", "Buzzer", dataGetter, dataSetter, kMaxAsyncInitTimeoutMS))
 	{
 		return -1;
 	}
@@ -302,7 +302,8 @@ int main(int argc, char **ppArgv)
 		std::this_thread::sleep_for(std::chrono::seconds(15));
 
 		serverDataBatteryLevel = std::max(serverDataBatteryLevel - 1, 0);
-		ggkNofifyUpdatedCharacteristic("/com/gobbledegook/battery/level");
+		LogDebug((std::string("Calling  ggkNofifyUpdatedCharacteristic").c_str()));
+		ggkNofifyUpdatedCharacteristic("/com/buzzer/battery/level");
 	}
 
 	// Wait for the server to come to a complete stop (CTRL-C from the command line)

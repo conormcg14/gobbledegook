@@ -313,6 +313,7 @@ Server::Server(const std::string &serviceName, const std::string &advertisingNam
 			// We can handle updates in any way we wish, but the most common use is to send a change notification.
 			.onUpdatedValue(CHARACTERISTIC_UPDATED_VALUE_CALLBACK_LAMBDA
 			{
+				std::cout << "DEBUG Conor: Calling  onUpdatedValue for battery!!!!!!!" << std::endl;
 				uint8_t batteryLevel = self.getDataValue<uint8_t>("battery/level", 0);
 				self.sendChangeNotificationValue(pConnection, batteryLevel);
 				return true;
